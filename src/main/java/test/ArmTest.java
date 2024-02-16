@@ -12,7 +12,7 @@ public class ArmTest {
         try {
             String sql = "INSERT INTO users (email, password) VALUES ('" + email + "', '" + password + "')";
             Statement statement = connection.createStatement();
-            int result = statement.executeUpdate(sql);
+            statement.executeUpdate(sql);
             queryDB();
         } catch (SQLException e) {
             System.err.println("SQL error:" + e.getMessage());
@@ -57,7 +57,7 @@ public class ArmTest {
         try {
             String sql = "UPDATE users SET password = '"+ new_password + "' WHERE email = '" + email + "';";
             Statement statement = connection.createStatement();
-            int result = statement.executeUpdate(sql);
+            statement.executeUpdate(sql);
             queryDB();
         } catch (SQLException e) {
             System.err.println("SQL error:" + e.getMessage());
