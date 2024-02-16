@@ -7,6 +7,6 @@ public class Main {
         System.out.println(":DDDD");
         System.out.println("i som");
         System.out.println("New sud lor");
-        System.out.println("Arm sud tae");
+        System.out.println("Mai wai la");
     }
 }
