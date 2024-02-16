@@ -1,7 +1,6 @@
 package test;
 
-import db.LibearchDB;
-
+import project.db.LibearchDB;
 import java.sql.*;
 import  java.util.*;
 
