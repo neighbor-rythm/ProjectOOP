@@ -1,4 +1,4 @@
-package db;
+package project.db;
 
 import java.sql.*;
 import java.util.Properties;
