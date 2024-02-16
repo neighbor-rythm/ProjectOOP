@@ -11,12 +11,11 @@ public class Login {
     public JPanel p;
     public JLabel name, name2;
     public JTextField txt, txt2;
-    public JButton b1;
+    public JButton b1, b2, b3;
 
     public Login() {
     fr = new JFrame("Home");
     fr.setDefaultCloseOperation(fr.EXIT_ON_CLOSE);
-    fr.setLayout(new BorderLayout());
 
     //Create JDesktopPane JPanel and JLabel
     dp = new JDesktopPane();
@@ -26,7 +25,9 @@ public class Login {
     txt = new JTextField(20);
     txt2 = new JTextField(20);
     b1 = new JButton("Enter");
-    jf = new JInternalFrame("Login", true, true, true, true);
+    b2 = new JButton("Cancel");
+    b3 = new JButton("Forgot");
+    jf = new JInternalFrame("Login", false, true, false, false);
 
     //Create JInternalFrame
     jf.getContentPane().add(new JLabel("Maintain....."));
@@ -36,6 +37,8 @@ public class Login {
 
     jf.add(txt);
     jf.add(txt2);
+    jf.add(b3);
+    jf.add(b2);
     jf.add(b1);
     //DesktopPane Setting
     dp.add(jf);
@@ -43,7 +46,7 @@ public class Login {
     fr.add(dp, BorderLayout.CENTER);
 
     jf.setLocation(100,100);
-    jf.setSize(300,300);
+    jf.setSize(300,150);
     fr.setSize(1000, 600);
     fr.setVisible(true);
 
