@@ -12,7 +12,7 @@ public class ArmTest {
         try {
             String sql = "INSERT INTO users (email, password) VALUES ('" + email + "', '" + password + "')";
             Statement statement = connection.createStatement();
-            statement.execute(sql);
+            statement.executeUpdate(sql);
             queryDB();
         } catch (SQLException e) {
             System.err.println("SQL error:" + e.getMessage());
@@ -57,27 +57,7 @@ public class ArmTest {
         try {
             String sql = "UPDATE users SET password = '"+ new_password + "' WHERE email = '" + email + "';";
             Statement statement = connection.createStatement();
-            statement.execute(sql);
-            queryDB();
-        } catch (SQLException e) {
-            System.err.println("SQL error:" + e.getMessage());
-        } finally {
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    System.err.println("SQL closing error:" + e.getMessage());
-                }
-            }
-        }
-    }
-
-    public static void deleteDB(String email) {
-        Connection connection = LibearchDB.getConnection();
-        try {
-            String sql = "DELETE FROM users WHERE email = '" + email + "'";
-            Statement statement = connection.createStatement();
-            statement.execute(sql);
+            statement.executeUpdate(sql);
             queryDB();
         } catch (SQLException e) {
             System.err.println("SQL error:" + e.getMessage());
@@ -94,7 +74,7 @@ public class ArmTest {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Method (insert/update/query/delete): ");
+        System.out.print("Method (insert/update/query): ");
         String method = sc.nextLine();
         switch (method) {
             case "insert" -> {
@@ -111,11 +91,6 @@ public class ArmTest {
                 System.out.print("New password: ");
                 String new_password = sc.nextLine();
                 updateDB(email, new_password);
-            }
-            case "delete" -> {
-                System.out.print("Email: ");
-                String email = sc.nextLine();
-                deleteDB(email);
             }
             default -> System.out.println("Invalid method!!");
         }
